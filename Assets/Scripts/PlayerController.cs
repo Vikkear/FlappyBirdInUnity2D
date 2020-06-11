@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,6 +28,11 @@ public class PlayerController : MonoBehaviour
                 gravity = maxSpeed;
             }
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void FixedUpdate()
